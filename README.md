@@ -22,7 +22,7 @@ To set remote repository in git bash folder
 To overwrite remote repository to another new repository in git bash folder
 
 ```bash
-	 git remote show origin
+   git remote show origin
    git remote set-url origin {repository.git} 
 ```
 
