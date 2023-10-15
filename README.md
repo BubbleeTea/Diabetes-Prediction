@@ -31,10 +31,12 @@ To check Existing branches and header point on branch
    git branch
 ```
 
-To create new branch or switch to other existing branch to push files
+To create new branch or rename branch or switch to other existing branch to push files
 
 ```bash
    git checkout -b {branch name}
+   git branch -m {branch name}
+   git branch -m {old branch name} {new name}
    git checkout {branch name}
 ```
 
