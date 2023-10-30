@@ -1,38 +1,33 @@
-.body{
-    font-style: italic;
-    font-family: 'Times New Roman', Times, serif;
-    
+.body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
-.navbar-nav a {
-    float: left;
-    display: block;
-    /* color: #f2f2f2; */
+
+.header {
+    background-color: #f1f1f1;
+    padding: 10px;
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
 }
-.imgParent{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.post {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
-.image-container {
-    /* background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat; */
-    height: 60vh;
-    width: 80vw;
-    margin-top: 5%;
-    border-radius: 3%;
+
+.img {
+    max-width: 100%;
+    height: auto;
 }
 .services h2 {
     color: black;
     font-size: 35px;
     text-align: center;
     padding: 20px;
+    font-style:oblique;
+    font-family: 'Times New Roman', Times, serif;
 }
-
 .services .services_container {
     display: flex;
     margin-left: 5%;
@@ -40,31 +35,35 @@
 }
 
 .services .services_container .item {
-    width: 33.33%;
-    margin: 10px;
-    height: auto;
+    width: 35%;
+    margin: 5%;
+    height: 40%;
+    position: relative;
+    transition: transform 0.8s;
+  transform-style: preserve-3d;
 }
 
 .services .services_container .item:hover {
     box-shadow: 0px 3px 65px 0px rgba(0, 0, 0, .15);
+    transform: rotateY(180deg);
 }
 
 .services .services_container .item .item_img {
-    width: 100%;
-    height: 250px;
+    width: 80%;
+    height: 40%;
     overflow: hidden;
     border-radius: 5%;
 
 }
 
 .services .services_container .item .item_img img {
-    width: 100%;
-    height: 250px;
+    width: 80%;
+    height: 230px;
 }
 
-.services {
+/* .services {
     padding-bottom: 50px;
-}
+} */
 
 .services .services_container .item .item_content {
     text-align: center;
@@ -88,9 +87,9 @@
 
 .services .services_container .item .item_content a {
     text-decoration: none;
-    /* margin: 50px;
+    margin: 50px;
     padding: 10px 20px;
-    background-color: rgb(14, 228, 92); */
+    background-color: rgb(14, 228, 92);
     color: black;
     /* font-family: 'Courier New', Courier, monospace; */
     font-style:oblique;
@@ -103,37 +102,12 @@
 
 .services .services_container .item .item_content a:hover {
     background-color: black;
-    color:blueviolet;
-    border: none;
-    border-bottom: 4px solid grey;
-    transition: .5s;
-}
-
-.services .services_btn {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.services .services_btn a {
-    text-decoration: none;
-    margin: 50px;
-    padding: 10px 20px;
-    background-color: rgb(117, 165, 228);
-    color: black;
-    font-family: 'Courier New', Courier, monospace;
-    text-align: center;
-    border: 2px solid white;
-    border-radius: 10px;
-    transition: 0.5s;
-}
-
-.services .services_btn a:hover {
-    background-color: black;
     color: white;
     border: none;
     border-bottom: 4px solid grey;
     transition: .5s;
 }
+
 footer {
     background-color: rgb(240, 231, 237);
     padding: 50px;

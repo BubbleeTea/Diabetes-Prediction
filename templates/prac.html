@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>MyDiaDoc</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/prac.css') }}">
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+
+    <body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+        <div class="logo">
+            <a href="/"><img src="static\image\logo.png" width="80"></a>
+        </div>
+        <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link" href="/AboutUs">About Us</a>
+            <a class="nav-link" href="/ContactUs">Contact</a>
+        </div>
+        </div>
+    </nav>
+
+    <body>
+
+        <div class="mainform">
+            <div class="containerone" id="container">
+                <h2>Report Input</h2><br><br>
+                <label for="gender">Gender:</label>
+                <!--<div class="radio-group">-->
+                    <label><input type="radio" name="gender" value="male" onchange="toggleInputs()"> Male</label>
+                    <label><input type="radio" name="gender" value="female" onchange="toggleInputs()"> Female</label><br><br>
+                <!-- </div><br>-->
+
+                <label> Pregnancies </label>
+                <input type="textbox" name="r1" id="pregnancies" placeholder="0" disabled><br><br>
+
+                <label> PCOD </label>
+                <input type="textbox" name="r1" id="pcod" placeholder="0" disabled><br><br>
+
+                <label> Glucose </label>
+                <input type = "textbox" name = "glucose" placeholder = "0"><br><br>
+
+                <label> Blood Pressure </label>
+                <input type = "textbox" name = "bloodpressure" placeholder = "Diastolic blood pressure (mm Hg)"><br><br>
+
+                <label> Skin Thickness </label>
+                <input type = "textbox" name = "skinthickness" placeholder = "Triceps skin fold thickness (mm)"><br><br>
+
+                <label> Insulin </label>
+                <input type = "number" inputmode="numeric" name = "insulin" placeholder = "no"><br><br>
+
+                <label> Body Mass Index (BMI) </label>
+                <input type = "textbox" name = "bmi" placeholder = "no"><br><br>
+
+                <label> Diabetes Pedigree Function (DPF) </label>
+                <input type = "number" name = "dpf" placeholder = "no"><br><br>
+
+                <label> Age </label>
+                <input type = "number" name = "age" placeholder = "no"><br><br>
+                <button onclick="getDataAndSend()">Find</button><br><br>
+                <label name="output" id="output-label">Output:</label>
+            </div>
+
+            <div>
+                <div class="containertwo" id="container">
+                    <h3>BMI Calculator</h3>
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" id="weight" placeholder="Enter your weight" required><br>
+                    <label for="height">Height (cm):</label>
+                    <input type="number" id="height" placeholder="Enter your height" required><br>
+                    <button onclick="calculateBMI()">Calculate BMI</button><br><br>
+                    <h4>Result:</h4>
+                    <p>Your BMI is: <span id="result1"></span></p>
+                </div>
+            </div>
+        
+
+            <div>
+                <div class="containerthree" id="container">
+                    <h3>DPF Calculator</h3>
+                    <label for="parents">Number of affected parents (0, 1, or 2):</label>
+                    <input type="number" id="parents" placeholder="Enter number of affected parents" min="0" max="2" required><br>
+                    <label for="siblings">Number of affected full siblings:</label>
+                    <input type="number" id="siblings" placeholder="Enter number of affected siblings" min="0" required><br>
+                    <label for="halfSiblings">Number of affected half siblings:</label>
+                    <input type="number" id="halfSiblings" placeholder="Enter number of affected half siblings" min="0" required><br>
+                    <button onclick="calculateDPF()">Calculate DPF</button><br><br>
+                    <h4>Result:</h4>
+                    <p>Your Diabetes Pedigree Function (DPF) is: <span id="result2"></span></p>
+                </div>
+            </div>
+
+            <div class="containerfour" id="container">
+                <h2>Form 4</h2>
+                    <label for="field5">Field 5:</label>
+                    <input type="text" id="field5" name="field5" required><br><br>
+                    <label for="field6">Field 6:</label>
+                    <input type="text" id="field6" name="field6" required><br><br>
+                    <button onclick="#">Form submit</button><br><br>
+            </div>
+        </div>
+
+        <script>
+            function calculateBMI() {
+                var weight = parseFloat(document.getElementById("weight").value);
+                var height = parseFloat(document.getElementById("height").value);
+                var bmi = weight / ((height / 100) ** 2); // Convert height to meters before calculation
+                bmi = bmi.toFixed(2); // Round BMI to 2 decimal places
+                document.getElementById("result1").textContent = bmi;
+            }
+
+            function calculateDPF() {
+                var numParents = parseInt(document.getElementById("parents").value);
+                var numSiblings = parseInt(document.getElementById("siblings").value);
+                var numHalfSiblings = parseInt(document.getElementById("halfSiblings").value);
+                
+                var dpf = numParents * 0.15 + numSiblings * 0.1 + numHalfSiblings * 0.05;
+                
+                document.getElementById("result2").textContent = dpf;
+            }
+
+            function toggleInputs() {
+                var gender = document.querySelector('input[name="gender"]:checked').value;
+                var pregnanciesInput = document.getElementById("pregnancies");
+                var pcodInput = document.getElementById("pcod");
+    
+                if (gender === "male") {
+                    pregnanciesInput.disabled = true;
+                    pcodInput.disabled = true;
+                    pregnanciesInput.value = "0";
+                    pcodInput.value = "0";
+                } else if (gender === "female") {
+                    pregnanciesInput.disabled = false;
+                    pcodInput.disabled = false;
+                }
+            }
+
+            function getDataAndSend() {
+                var gender = document.querySelector('input[name="gender"]:checked').value;
+                var pregnancies = document.getElementById("pregnancies").value;
+                var glucose = document.getElementsByName("glucose")[0].value;
+                var bloodpressure = document.getElementsByName("bloodpressure")[0].value;
+                var skinthickness = document.getElementsByName("skinthickness")[0].value;
+                var insulin = document.getElementsByName("insulin")[0].value;
+                var bmi = document.getElementsByName("bmi")[0].value;
+                var dpf = document.getElementsByName("dpf")[0].value;
+                var age = document.getElementsByName("age")[0].value;
+            
+                // Construct an array with the specified structure
+                var dataArray = [pregnancies, glucose, bloodpressure, skinthickness, insulin, bmi, dpf, age];
+            
+                // Send the array to the Flask server using AJAX
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "/process_data");
+                xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                xhr.onreadystatechange = function() {
+                    if (this.readyState === 4 && this.status === 200) {
+                        // Parse the response from the Flask server
+                        var response = JSON.parse(this.responseText);
+                        
+                        // Update the output label with the model's prediction
+                        var outputLabel = document.getElementById("output-label");
+                        outputLabel.textContent = "Output: " + response.result;
+                    }
+                };
+            
+                // Send the data array as JSON to the Flask server
+                xhr.send(JSON.stringify({ data: dataArray }));
+            }
+        </script>
+
+
+        <footer>
+            <div class="footer_logo pages">
+            <a href="/"><img src="static\image\logo.png" width="80 "></a>
+            <a href="/AboutUs">About Us</a>|
+            <a href="/ContactUs">Contact</a>|
+            </div>
+        
+            <div class="social">
+            <h3>Follow Us</h3>
+            <a href="https://www.dmce.ac.in/" target="_blank"><i class="fa fa-globe" aria-hidden="true"></i></a>
+            <a href="https://github.com/BubbleeTea/Diabetes-Prediction.git" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+            <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+            </div>
+            
+        </footer>
+    </body>
+
+</html>
