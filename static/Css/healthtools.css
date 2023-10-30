@@ -1,0 +1,79 @@
+img {
+    transition: transform .7s ease-in-out;
+  }
+  img:hover {
+    transform:rotate3d(360);
+  }
+
+footer {
+    background-color: rgb(240, 231, 237);
+    padding: 50px;
+}
+
+footer .pages {
+    text-align: centre;
+}
+
+
+
+footer .pages a {
+    text-decoration: none;
+    margin: 10px;
+    color: black;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style:oblique;
+}
+
+footer .pages a:hover {
+    color: rgb(85, 104, 244);
+}
+
+footer .contact {
+    text-align: centre;
+}
+
+footer .contact h3 {
+    color: black;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 5px;
+    font-style:oblique;
+}
+
+footer .contact a {
+    font-size: 30px;
+    color: black;
+    margin: 10px;
+    text-decoration: none;
+}
+
+footer .contact a:hover {
+    color:rgb(85, 104, 244);
+}
+
+footer .social {
+    text-align: centre;
+}
+
+footer .social h3 {
+    color: black;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 25px;
+    font-style:oblique;
+    
+}
+
+
+footer .social a {
+    font-size: 25px;
+    color: black;
+    margin: 5px;
+    text-decoration: none;
+   
+}
+
+footer .social a:hover {
+    color:rgb(85, 104, 244);
+}
